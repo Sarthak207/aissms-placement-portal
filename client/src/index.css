@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-navy-100;
+  }
+  body {
+    @apply antialiased;
+  }
+  ::selection {
+    @apply bg-seal-light/40;
+  }
+  :focus-visible {
+    outline: 2px solid theme('colors.seal.DEFAULT');
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Seal badge — the signature element used across the app for verification/status states */
+  .seal-badge {
+    @apply relative inline-flex items-center justify-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold tracking-wide;
+  }
+  .seal-badge::before {
+    content: '';
+    @apply w-1.5 h-1.5 rounded-full;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
